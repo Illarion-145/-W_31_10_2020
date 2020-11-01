@@ -2,10 +2,12 @@
 #include <string>
 using namespace std;
 
-string lengthMaxString(string s, int m, int m1) {
-    int i = 0, k = 0, length = 100;
+string swap(string s, int m, int m1) {
+    int i = 0, k = 0, 
+        length = s.size() / 2;
     string* array = new string[length]; 
     string new_string;
+
     while (s[i] != '\0') {
         
         while (s[i] == ' ')
@@ -20,6 +22,7 @@ string lengthMaxString(string s, int m, int m1) {
     }
 
     length = k;
+    
     for (int i = 0; i < length; i++) {
         if (i == m - 1) {
             new_string += array[m1 - 1] + ' ';
@@ -46,7 +49,6 @@ int main() {
     getline(cin, str);
     cin >> m >> m1;
 
-    
     cout << lengthMaxString(str, m, m1);
 
     return 0;
