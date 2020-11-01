@@ -5,31 +5,37 @@ using namespace std;
 int length;
 
 string* split(string str, string del) {
-    length = str.size() / 2;
-    string* str_array = new string[length];
     int i = 0, k = 0;
+    string* str_array = new string[length];
+    length = str.size() / 2;
+    
     while (str[i] != '\0') {
         string word = "";
         while (str[i] != del[0] && str[i] != '\0') {
             str_array[k] += str[i];
             i++;
         }
+        
         k++;
         if (str[i] != '\0')
             i++;
     }
+    
     length = k;
+    
     return str_array;
 }
 
 string join(string* str, string del) {
     string new_str;
+    
     for (int i = 0; i < length; i++) {
         if (i != length - 1)
             new_str += str[i] + del;
         else
             new_str += str[i];
     }
+    
     return new_str;
 }
 
